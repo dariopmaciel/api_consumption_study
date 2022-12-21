@@ -16,12 +16,11 @@
 //   return json;
 // }
 
-import 'package:api_consumption_converter_money/screen/page_one_home.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter/material.dart';
-import 'dart:async';
 import 'dart:convert';
-import 'package:http/http.dart';
+import 'dart:async';
+import 'package:http/http.dart' as http;
+import 'package:api_consumption_converter_money/screen/page_one_home.dart';
+import 'package:flutter/material.dart';
 
 void main() async {
   //acessando o site
@@ -34,7 +33,7 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: const Home(),
       theme: ThemeData(
         hintColor: Colors.amber,
         primaryColor: Colors.white,
@@ -51,7 +50,7 @@ void main() async {
 }
 
 Future<Map> getData() async {
-  var request = Uri.parse(
+  final request = Uri.parse(
       "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
   http.Response response = await http.get(request);
   return jsonDecode(response.body);

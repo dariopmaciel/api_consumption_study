@@ -147,6 +147,6 @@ Widget buildTextField(
         prefixText: prefix),
     style: const TextStyle(color: Colors.amber, fontSize: 25.0),
     onChanged: (value) => f,
-    // keyboardType: TextInputType.numberWithOptions(),
+    keyboardType: const TextInputType.numberWithOptions(),
   );
 }
