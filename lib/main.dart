@@ -50,7 +50,7 @@ void main() async {
 }
 
 Future<Map> getData() async {
-  final request = Uri.parse(
+  var request = Uri.parse(
       "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
   http.Response response = await http.get(request);
   return jsonDecode(response.body);
