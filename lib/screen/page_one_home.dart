@@ -136,6 +136,7 @@ class _HomeState extends State<Home> {
   }
 }
 
+//a criação desta função foi para minimizar a edição de texto
 Widget buildTextField(
     String label, String prefix, TextEditingController c, Function f) {
   return TextField(
