@@ -19,8 +19,10 @@
 import 'dart:convert';
 import 'dart:async';
 import 'package:http/http.dart' as http;
-import 'package:api_consumption_converter_money/screen/page_one_home.dart';
+
 import 'package:flutter/material.dart';
+
+import 'screen/page_one_home.dart';
 
 void main() async {
   //acessando o site
@@ -49,9 +51,15 @@ void main() async {
   );
 }
 
+// Future<Map> getData() async {
+//   var request = Uri.parse(
+//       "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
+//   http.Response response = await http.get(request);
+//   return jsonDecode(response.body);
+// }
 Future<Map> getData() async {
-  var request = Uri.parse(
+  var url = Uri.parse(
       "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
-  http.Response response = await http.get(request);
+  var response = await http.get(url);
   return jsonDecode(response.body);
 }
