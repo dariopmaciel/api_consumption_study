@@ -1,10 +1,8 @@
 import 'package:api_consumption_converter_money/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -18,16 +16,22 @@ class _HomeState extends State<Home> {
   late double dolar;
   late double euro;
 
-  _dolarChanged(String text) {
-    print(text);
+  void _dolarChanged(String text) {
+    double dolar = double.parse(text);
+    realController.text = (dolar * this.dolar).toStringAsFixed(2);
+    euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2);
   }
 
-  _euroChanged(String text) {
-    print(text);
+  void _euroChanged(String text) {
+    double euro = double.parse(text);
+    realController.text = (euro * this.euro).toStringAsFixed(2);
+    dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
   }
 
-  _realChanged(String text) {
-    print(text);
+  void _realChanged(String text) {
+    double real = double.parse(text);
+    dolarController.text = (real / dolar).toStringAsFixed(2);
+    euroController.text = (real / euro).toStringAsFixed(2);
   }
 
   @override
@@ -133,17 +137,16 @@ class _HomeState extends State<Home> {
 }
 
 Widget buildTextField(
-    String label, String prefix, TextEditingController controle, Function fun) {
+    String label, String prefix, TextEditingController c, Function f) {
   return TextField(
-    keyboardType: TextInputType.number,
+    controller: c,
     decoration: InputDecoration(
-      labelText: label,
-      labelStyle: const TextStyle(color: Colors.amber),
-      border: const OutlineInputBorder(),
-      prefixText: prefix,
-    ),
-    controller: controle,
-    style: const TextStyle(color: Colors.amber, fontSize: 25),
-    onChanged: (value) => fun,
+        labelText: label,
+        labelStyle: const TextStyle(color: Colors.amber),
+        border: const OutlineInputBorder(),
+        prefixText: prefix),
+    style: const TextStyle(color: Colors.amber, fontSize: 25.0),
+    onChanged: (value) => f,
+    // keyboardType: TextInputType.numberWithOptions(),
   );
 }

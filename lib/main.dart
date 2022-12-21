@@ -21,9 +21,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
-
-var request =
-    Uri.parse("https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
+import 'package:http/http.dart';
 
 void main() async {
   //acessando o site
@@ -36,7 +34,7 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      home: Home(),
       theme: ThemeData(
         hintColor: Colors.amber,
         primaryColor: Colors.white,
@@ -52,7 +50,9 @@ void main() async {
   );
 }
 
-Future<Map<dynamic, dynamic>> getData() async {
+Future<Map> getData() async {
+  var request = Uri.parse(
+      "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
   http.Response response = await http.get(request);
-  return json.decode(response.body);
+  return jsonDecode(response.body);
 }
