@@ -1,5 +1,4 @@
 // import 'package:http/http.dart' as http;
-
 // import 'dart:convert';
 
 // Future main() async {
@@ -51,12 +50,6 @@ void main() async {
   );
 }
 
-// Future<Map> getData() async {
-//   var request = Uri.parse(
-//       "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
-//   http.Response response = await http.get(request);
-//   return jsonDecode(response.body);
-// }
 Future<Map> getData() async {
   var url = Uri.parse(
       "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
