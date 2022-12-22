@@ -61,5 +61,9 @@ Future<Map> getData() async {
   var url = Uri.parse(
       "https://api.hgbrasil.com/finance?format=json-cors&key=175a9f23");
   var response = await http.get(url);
+  //deve consumir apenas o solicitao
+  //confirmação de que se está consumindo a API
+  //print(response.body);
+  //print(json.decode(response.body)["results"]["currencies"]["USD"]["buy"]);
   return jsonDecode(response.body);
 }

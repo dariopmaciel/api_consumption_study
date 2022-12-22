@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
                   ),
                 );
               } else {
-                //dolar = snapshot.data!["results"]["currencies"]["USD"]["buy"];
+                //deve consumir apenas o solicitao
                 dolar = snapshot.data!["results"]["currencies"]["USD"]["buy"];
                 euro = snapshot.data!["results"]["currencies"]["EUR"]["buy"];
                 //return Container(color: Colors.green);
@@ -122,27 +122,9 @@ class _HomeState extends State<Home> {
                       const Divider(),
                       buildTextField(
                           "Euro", "€\$ ", euroController, _euroChanged),
-                      // TextField(
-                      //   decoration: InputDecoration(
-                      //     labelText: "Euro",
-                      //     labelStyle: TextStyle(color: Colors.amber),
-                      //     border: OutlineInputBorder(),
-                      //     prefixText: "€ \$",
-                      //   ),
-                      //   style: TextStyle(color: Colors.amber, fontSize: 25),
-                      // ),
                       const Divider(),
                       buildTextField(
                           "Real", "R\$ ", realController, _realChanged),
-                      // TextField(
-                      //   decoration: InputDecoration(
-                      //     labelText: "Reais",
-                      //     labelStyle: TextStyle(color: Colors.amber),
-                      //     border: OutlineInputBorder(),
-                      //     prefixText: "R \$",
-                      //   ),
-                      //   style: TextStyle(color: Colors.amber, fontSize: 25),
-                      // ),
                     ],
                   ),
                 );
